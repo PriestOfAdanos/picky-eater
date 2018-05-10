@@ -120,3 +120,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'user_creator.User'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = '**********'
+EMAIL_HOST_PASSWORD = '**********'
+EMAIL_PORT = 587
