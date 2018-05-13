@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import BaseUserManager
+from django.utils import timezone
 
 
 class MyUserManager(BaseUserManager):
@@ -35,8 +36,8 @@ class MyUserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True, null=True)
-    first_name = models.CharField(_('first name'), max_length=30, blank=True, required=True)
-    last_name = models.CharField(_('last name'), max_length=30, blank=True, required=True)
+    first_name = models.CharField(_('first name'), max_length=30, blank=True)
+    last_name = models.CharField(_('last name'), max_length=30, blank=True)
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,
@@ -76,3 +77,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     #     Sends an email to this User.
     #     """
     #     send_mail(subject, message, from_email, [self.email], **kwargs)
+
+
+
