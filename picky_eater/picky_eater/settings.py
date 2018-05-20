@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
 # Application definition
 
@@ -50,12 +51,19 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+MEDIA_ROOT = PROJECT_PATH + '/media/'
+
+TEMPLATE_DIRS = (
+    PROJECT_PATH + '/templates/',
+)
 ROOT_URLCONF = 'picky_eater.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['picky_eater/templates'],
+        # why do i need to explicitly tell django where to look? how does it decide which dir should be default?
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,3 +134,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = '**********'
 EMAIL_HOST_PASSWORD = '**********'
 EMAIL_PORT = 587
+
+LOGIN_REDIRECT_URL = '/home'

@@ -58,10 +58,4 @@ class SignupForm(UserCreationForm):
             user.save()
         return user
 
-    # def save(self, commit=True):
-    #     user = super(SignupForm, self).save(commit=False)
-    #     user.set_password(self.cleaned_data["password1"])
-    #     if commit:
-    #         user.save()
-    #     return user
 
